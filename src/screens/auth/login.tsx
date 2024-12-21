@@ -43,7 +43,7 @@ const LoginScreen = ({navigation}: OnboardingScreenProps) => {
          <InputField
             onChangeText={setPassword}
             value={password}
-            placeholder='password'
+            placeholder='Password'
             editable={true}
             isPassword={true}
             keyboardType='default'
@@ -58,7 +58,7 @@ const LoginScreen = ({navigation}: OnboardingScreenProps) => {
 
         <Spacer height={70} />
 
-        <Button text='Login Now'
+        <Button text='Login Now' 
         />
     </Background>
   )

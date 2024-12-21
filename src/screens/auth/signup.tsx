@@ -9,9 +9,9 @@ import { FONT_SIZE_18, FONT_SIZE_20 } from '@/styles/fonts'
 import Button from '@/components/button'
 import { AuthStackList } from '@/src/navigation/auth-navigator'
 
-type OnboardingScreenProps = NativeStackScreenProps<AuthStackList, "Login">;
+type OnboardingScreenProps = NativeStackScreenProps<AuthStackList, "Register">;
 
-const LoginScreen = ({navigation}: OnboardingScreenProps) => {
+const SignupScreen = ({navigation}: OnboardingScreenProps) => {
     const [email, setEmail] = useState("");
     const [tag, setTag] = useState("");
     const [password, setPassword] = useState("");
@@ -51,7 +51,7 @@ const LoginScreen = ({navigation}: OnboardingScreenProps) => {
          <InputField
             onChangeText={setPassword}
             value={password}
-            placeholder='password'
+            placeholder='Password'
             editable={true}
             isPassword={true}
             keyboardType='default'
@@ -72,7 +72,7 @@ const LoginScreen = ({navigation}: OnboardingScreenProps) => {
   )
 }
 
-export default LoginScreen
+export default SignupScreen
 
 const styles = StyleSheet.create({
     logo: {

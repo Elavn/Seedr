@@ -1,46 +1,54 @@
-import React from "react";
-import { ImageBackground, StyleSheet, Platform, Text, View, StatusBar } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import React from 'react'
+import Background from '@/components/background'
+import BalanceCard from '@/components/balanceCard'
+import TransactionCard from '@/components/transactionCard'
+import ProgressRing from '@/components/charts/pieCharts/progressRing'
+import { ACCENT, WHITE } from '@/styles/colors'
+import { FONT_SIZE_28 } from '@/styles/fonts'
+import Spacer from '@/components/spacer'
 
-const Dashboard = () => {
+
+const DashboardScreen = () => {
   return (
     
+      <Background>
+        <Image style={styles.logo}
+        resizeMode='contain'
+        source={require("../../../assets/images/logo.png")} />
+        <Spacer height={18}/>
+      <Text style={styles.headerText}>My dashboard</Text>
+      <Spacer height={20}/>
+      <ScrollView showsVerticalScrollIndicator={false}>
       
-      <ImageBackground
-          source={require("../../../assets/images/logo.png")}
-          style={styles.bgImg}
-        ></ImageBackground>
+        <BalanceCard />
+      <Spacer height={20}/>
+        <TransactionCard />
+      <Spacer height={20}/>
+      <ProgressRing />
+      </ScrollView>
+      
+    </Background>
+    
+    
+    
+  )
+}
 
-   
-        
-     
-   
-  );
-};
-
-export default Dashboard;
+export default DashboardScreen
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column'
+  headerText: {
+    fontFamily: 'Inter-SemiBold',
+    fontSize: FONT_SIZE_28,
+    color: WHITE
   },
-  bgImg: {
-    flex: 1,
-    
+  logo: {
+    width: 79,
+    height: 20,
   },
-  safeArea: {
-    flex: 1,
-    flexGrow: 1
-  },
-  txt: {
-    position: "absolute",
-    right: 10,
-    top: 60,
-    color: "#000",
-    fontSize: 18,
-  },
-  fullscreen: {
-    flex: 1
+  chartBg: {
+    backgroundColor: ACCENT,
+    alignItems: 'center',
   }
-});
+})
